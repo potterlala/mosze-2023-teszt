@@ -4,41 +4,30 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-   // NELEMENTS helyett N_ELEMENTS
-    int *b = new int[NELEMENTS];
+    int *b = new int[N_ELEMENTS];
+    std::cout << "1-100 ertekek duplazasa\n";
 
-    // ; hiányzik, "" legyen szövegnél
-    std::cout << '1-100 ertekek duplazasa'
-
-    // 1-től kezdődik: i = 1
-    // for ciklus többi része? (i <= N_ELEMENTS; i++)
-    for (int i = 0;)
-
+    for (int i = 1; i <= N_ELEMENTS; i++)
     {
-        b[i] = i * 2;
+        b[i-1] = i * 2;
     }
 
-    // i < N_ELEMENTS középen
-    for (int i = 0; i; i++)
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
-      // érték kiírása? (b[i])
-        std::cout << "Ertek:"
+        // std::cout << "Ertek: "
+        std::cout << b[i] << std::endl;
     }    
 
-    std::cout << "Atlag szamitasa: " << std::endl;
-    // atlag = 0, különben a += nem működik
-    // átlag legyen double, hátha tizedes érték lesz!
-    int atlag;
+    std::cout << "\nAtlag szamitasa:\n"; // << std::endl;
+    double atlag = 0;
 
-    // ; !! (nem vessző!)
-    for (int i = 0; i < N_ELEMENTS, i++)
+    for (int i = 0; i < N_ELEMENTS; i++)
     {
-      // ; végére!
-        atlag += b[i]
+        atlag += b[i];
     }
     atlag /= N_ELEMENTS;
     std::cout << "Atlag: " << atlag << std::endl;
 
-    // delete hiányzik
+    delete[] b;
     return 0;
 }
